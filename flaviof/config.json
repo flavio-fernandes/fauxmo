@@ -1,0 +1,65 @@
+{
+    "FAUXMO": {
+        "ip_address": "auto"
+    },
+    "PLUGINS": {
+      "CommandLinePlugin": {
+          "DEVICES": [
+              {
+                  "name": "food ready",
+                  "port": 12340,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/foodSignOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/foodSignOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/foodSignStatus.sh"
+              },
+              {
+                  "name": "morning blue",
+                  "port": 12341,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueStatus.sh"
+              }
+          ]
+      },
+      "MQTTPlugin": {
+          "path": "/home/ff/mqtt2alexa/fauxmo-plugins.git/mqttplugin.py",
+          "DEVICES": [
+              {
+                  "name": "kitchen neopixel",
+                  "port": 12350,
+                  "on_cmd": [ "/fauxmo/kitchen_neopixel", "on" ],
+                  "off_cmd": [ "/fauxmo/kitchen_neopixel", "off" ],
+                  "state_cmd": "/fauxmo/kitchen_neopixel/oper_state",
+                  "mqtt_server": "mqttserver",
+                  "mqtt_client_id": "kitchen_neopixel"
+              },
+              {
+                  "name": "hallway neopixel",
+                  "port": 12351,
+                  "on_cmd": [ "/fauxmo/hallway_neopixel", "on" ],
+                  "off_cmd": [ "/fauxmo/hallway_neopixel", "off" ],
+                  "state_cmd": "/fauxmo/hallway_neopixel/oper_state",
+                  "mqtt_server": "mqttserver",
+                  "mqtt_client_id": "hallway_neopixel"
+              }
+          ]
+      },
+      "SimpleHTTPPlugin": {
+          "DEVICES": [
+              {
+                  "port": 12360,
+                  "name": "fortune cookie",
+                  "method": "POST",
+                  "on_cmd": "http://192.168.10.236/msgMode",
+                  "off_cmd": "http://192.168.10.236/msgMode",
+                  "on_data": "msg=#cookie&color=2&y=5&repeats=1&bounce=no&font=2&confetti=25",
+                  "off_data": "msg=.&timeout=1",
+                  "state_method": "GET",
+                  "state_cmd": "http://192.168.10.236/status",
+                  "state_response_on": "display_mode: message",
+                  "state_response_off": "display_mode: basicClock"
+              }
+          ]
+      }
+    }
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=Front end wrapper to Alexa
+
+[Service]
+User=ff
+Type=simple
+ExecStart=/home/ff/mqtt2alexa/fauxmo.git/flaviof/start_fauxmo.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
