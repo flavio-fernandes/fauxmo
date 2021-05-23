@@ -14,3 +14,4 @@ curl --request POST ${urlDict} \
   --data-urlencode 'dictionaryKey=ledStripStatus' \
   --data-urlencode 'dictionaryData=foodSignOn'
 
+nohup $(dirname "$0")/foodSignOnKitchenClock.sh >/dev/null 2>&1 & echo -n
