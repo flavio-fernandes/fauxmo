@@ -18,6 +18,30 @@
                   "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueOn.sh",
                   "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueOff.sh",
                   "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/morningBlueStatus.sh"
+              },
+              {
+                  "name": "garage steps",
+                  "port": 12342,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 5",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
+                  "state_cmd": "",
+                  "use_fake_state" : true
+              },
+              {
+                  "name": "garage steps red",
+                  "port": 12343,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 7",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
+                  "state_cmd": "",
+                  "use_fake_state" : true
+              },
+              {
+                  "name": "garage steps random",
+                  "port": 12344,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
+                  "state_cmd": "",
+                  "use_fake_state" : true
               }
           ]
       },
