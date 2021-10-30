@@ -5,7 +5,8 @@ set -o errexit
 
 MQTT='-h 192.168.10.238'
 STEPS='/garage_steps/set_light_mode /kitchen_steps/set_light_mode'
-TIMEOUT="1800" ; # 30 mins
+# TIMEOUT="1800" ; # 30 mins
+TIMEOUT="14400" ; # 4 hours
 
 # ref: https://stackoverflow.com/questions/35623462/bash-select-random-string-from-list
 # dance1
@@ -40,19 +41,24 @@ cmds[8]="fill,blue=127,green=127"
 # yellow
 cmds[9]="fill,red=127,green=127"
 
+# hack to check that variable is a number
+# http://stackoverflow.com/questions/806906/how-do-i-test-if-a-variable-is-a-number-in-bash
+
 size=${#cmds[@]}
-if [ -n "$1" ]; then
-    index=$(($1 % $size))
-else
-    index=$(($RANDOM % $size))
+index=$(($RANDOM % $size))
+[ -n "$1" ] && [ "$1" -eq "$1" ] && index=$(($1 % $size))
+
+onStr=$2
+if [ -z "${onStr}" ]; then
+    onStr=$index
 fi
 
 # echo ${cmds[$index]}
 for S in $STEPS ; do \
     for SUBCMD in ${cmds[$index]} ; do \
-        mosquitto_pub $MQTT -t $S -m "mode=${SUBCMD},timeout=1800"
+        mosquitto_pub $MQTT -t $S -m "mode=${SUBCMD},timeout=${TIMEOUT}"
         sleep 0.1
     done
 done
-touch /tmp/garageStepsOn
+echo "$index $onStr" > /tmp/garageStepsOn
 exit 0
