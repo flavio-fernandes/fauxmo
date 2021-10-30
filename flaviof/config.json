@@ -22,26 +22,80 @@
               {
                   "name": "garage steps",
                   "port": 12342,
-                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 5",
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 5 rainbow_but_any_should_match_this",
                   "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
-                  "state_cmd": "",
-                  "use_fake_state" : true
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsStatus.sh",
+                  "use_fake_state" : false
               },
               {
                   "name": "garage steps red",
                   "port": 12343,
-                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 7",
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh 7 red",
                   "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
-                  "state_cmd": "",
-                  "use_fake_state" : true
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsStatus.sh red"
               },
               {
                   "name": "garage steps random",
                   "port": 12344,
-                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh",
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOn.sh random random",
                   "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsOff.sh",
-                  "state_cmd": "",
-                  "use_fake_state" : true
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/garageStepsStatus.sh random"
+              },
+              {
+                  "name": "smokey water level",
+                  "port": 12345,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLowWater.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLowWater.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLowWaterStatus.sh"
+              },
+              {
+                  "name": "smokey",
+                  "port": 12346,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyStatus.sh"
+              },
+              {
+                  "name": "bedroom sky alarm",
+                  "port": 12347,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeySunshineBlueOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeySunshineBlueOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeySunshineBlueStatus.sh"
+              },
+              {
+                  "name": "bedroom diffuser",
+                  "port": 12348,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyDiffuserOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyDiffuserOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyDiffuserStatus.sh"
+              },
+              {
+                  "name": "smokey red light",
+                  "port": 12349,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOn.sh red 5 10800",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightStatus.sh red"
+              },
+              {
+                  "name": "smokey purple light",
+                  "port": 12350,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOn.sh purple 33",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightStatus.sh purple"
+              },
+              {
+                  "name": "smokey light",
+                  "port": 12351,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOn.sh random",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyLightStatus.sh random"
+              },
+              {
+                  "name": "smokey crazy light",
+                  "port": 12352,
+                  "on_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyCrazyLightOn.sh",
+                  "off_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyCrazyLightOff.sh",
+                  "state_cmd": "/home/ff/mqtt2alexa/fauxmo.git/flaviof/smokeyCrazyLightStatus.sh"
               }
           ]
       },
@@ -50,7 +104,7 @@
           "DEVICES": [
               {
                   "name": "kitchen neopixel",
-                  "port": 12350,
+                  "port": 12450,
                   "on_cmd": [ "/fauxmo/kitchen_neopixel", "on" ],
                   "off_cmd": [ "/fauxmo/kitchen_neopixel", "off" ],
                   "state_cmd": "/fauxmo/kitchen_neopixel/oper_state",
@@ -59,7 +113,7 @@
               },
               {
                   "name": "hallway neopixel",
-                  "port": 12351,
+                  "port": 12451,
                   "on_cmd": [ "/fauxmo/hallway_neopixel", "on" ],
                   "off_cmd": [ "/fauxmo/hallway_neopixel", "off" ],
                   "state_cmd": "/fauxmo/hallway_neopixel/oper_state",
@@ -71,7 +125,7 @@
       "SimpleHTTPPlugin": {
           "DEVICES": [
               {
-                  "port": 12360,
+                  "port": 12550,
                   "name": "fortune cookie",
                   "method": "POST",
                   "on_cmd": "http://192.168.10.236/msgMode",
